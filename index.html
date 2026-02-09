@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marufah Odetundun, MD | Medical Virtual Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a2332;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        nav h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--navy) 0%, #2d3e50 100%);
+            color: white;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #c49d2e;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+        }
+
+        /* Services */
+        .services {
+            padding: 4rem 0;
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid var(--gold);
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h4 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-download:hover {
+            background: var(--gold);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--navy) 0%, #2d3e50 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .contact a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Marufah Odetundun, MD</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div>
+                <div class="section-subtitle" style="color: var(--gold);">Medical Virtual Assistant</div>
+                <h2>Clinical Expertise Meets Administrative Excellence</h2>
+                <p>Medical Doctor specializing in remote healthcare support for US-based practices. I combine physician-level clinical knowledge with administrative efficiency to help you focus on patient care.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://raw.githubusercontent.com/odetundunmarufah-stack/Portfolio/main/Profile%20image.jpg" alt="Dr. Marufah Odetundun">
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-subtitle">About Me</div>
+            <h2 class="section-title">Medical Doctor Specializing in Virtual Healthcare Support</h2>
+            <div class="about-content">
+                <p>I'm Dr. Marufah Odetundun, a medical doctor with 2+ years of clinical experience now specializing in remote healthcare support for US practices. My medical background allows me to understand clinical workflows, medical terminology, and complex healthcare requirements in ways that typical virtual assistants cannot.</p>
+                
+                <p>I don't just complete administrative tasks—I provide physician-level insights that improve documentation accuracy, identify coding opportunities, and support better patient outcomes. Working with me means partnering with someone who truly understands both the clinical and operational sides of healthcare.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Documentation Delay Reduction</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Years Clinical Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Weekly Patient Encounters</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Reliable Remote Setup</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-subtitle">What I Offer</div>
+            <h2 class="section-title">Core Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Prior Authorization Management</h3>
+                    <p>Comprehensive PA support including documentation gathering, clinical justification, submission, and follow-up. Reduces denial rates and speeds up approvals.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3>Clinical Documentation Improvement</h3>
+                    <p>Physician note review and optimization for accurate coding, compliance, and revenue maximization while reducing audit risk.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Telehealth Coordination</h3>
+                    <p>Complete virtual visit support from scheduling and pre-visit prep to technical troubleshooting and post-visit follow-up.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>General Virtual Assistance</h3>
+                    <p>Patient communication, scheduling, insurance verification, chart preparation, and referral coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-subtitle">Work Samples</div>
+            <h2 class="section-title">Professional Portfolio</h2>
+
+            <div class="disclaimer">
+                <strong>⚠️ Disclaimer:</strong> All patient information in these samples is completely fictional. No real patient data or PHI is used.
+            </div>
+
+            <div class="projects-grid">
+                <!-- SOAP Note -->
+                <div class="project-card">
+                    <div class="project-icon">📄</div>
+                    <h4>Enhanced SOAP Note</h4>
+                    <p>Before/after documentation showing clinical improvement, proper ICD-10 coding, and E/M optimization for type 2 diabetes case.</p>
+                    <a href="https://github.com/odetundunmarufah-stack/Portfolio/raw/main/SOAP_Note_Enhanced.pdf" class="btn-download">Download Sample</a>
+                </div>
+
+                <!-- Prior Auth -->
+                <div class="project-card">
+                    <div class="project-icon">✅</div>
+                    <h4>Prior Authorization Package</h4>
+                    <p>Complete PA for Humira (adalimumab) with clinical justification, lab results, and failed trial documentation.</p>
+                    <a href="https://github.com/odetundunmarufah-stack/Portfolio/raw/main/Prior_Authorization_Complete.pdf" class="btn-download">Download Sample</a>
+                </div>
+
+                <!-- Patient Communication -->
+                <div class="project-card">
+                    <div class="project-icon">📧</div>
+                    <h4>Patient Communication Templates</h4>
+                    <p>6 professional email templates: appointments, lab results, insurance, prescriptions, telehealth, and after-visit summaries.</p>
+                    <a href="https://github.com/odetundunmarufah-stack/Portfolio/raw/main/Patient_Communication_Enhanced.pdf" class="btn-download">Download Sample</a>
+                </div>
+
+                <!-- Referral Tracking -->
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <h4>Referral Tracking System</h4>
+                    <p>Organized spreadsheet for managing patient referrals across multiple specialties with status tracking.</p>
+                    <a href="https://github.com/odetundunmarufah-stack/Portfolio/raw/main/Referral_Tracking_System.pdf" class="btn-download">Download Sample</a>
+                </div>
+
+                <!-- Patient Intake -->
+                <div class="project-card">
+                    <div class="project-icon">📋</div>
+                    <h4>Patient Intake Form</h4>
+                    <p>Comprehensive new patient intake template with demographics, insurance, medical history, and HIPAA compliance.</p>
+                    <a href="https://github.com/odetundunmarufah-stack/Portfolio/raw/main/Patient_Intake_Form.pdf" class="btn-download">Download Sample</a>
+                </div>
+
+                <!-- Telehealth SOP -->
+                <div class="project-card">
+                    <div class="project-icon">🎥</div>
+                    <h4>Telehealth SOP</h4>
+                    <p>Complete standard operating procedure for virtual visits: pre-visit, day-of, post-visit, and troubleshooting.</p>
+                    <a href="https://github.com/odetundunmarufah-stack/Portfolio/raw/main/Telehealth_SOP_Complete.pdf" class="btn-download">Download Sample</a>
+                </div>
+
+                <!-- Insurance Verification -->
+                <div class="project-card">
+                    <div class="project-icon">🔍</div>
+                    <h4>Insurance Verification Checklist</h4>
+                    <p>6-step verification process for confirming coverage, benefits, network status, and patient financial responsibility.</p>
+                    <a href="https://github.com/odetundunmarufah-stack/Portfolio/raw/main/Insurance_Verification_Checklist.pdf" class="btn-download">Download Sample</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to streamline your practice with physician-level support?</p>
+            
+            <div class="contact-info">
+                <p>📧 Email: <a href="mailto:marufah.mdva@gmail.com">marufah.mdva@gmail.com</a></p>
+                <p>📱 Phone: <a href="tel:+2348147119371">+234 814 711 9371</a></p>
+                <p>💼 LinkedIn: <a href="https://linkedin.com/in/marufah-odetundun-md" target="_blank">linkedin.com/in/marufah-odetundun-md</a></p>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="mailto:marufah.mdva@gmail.com" class="btn">Email Me Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Marufah Odetundun, MD</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">Portfolio samples for demonstration only • All patient data is fictional</p>
+    </footer>
+</body>
+</html>
+
